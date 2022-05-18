@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const CompanySchema = new mongoose.Schema({
+  logoLocation: { type: String },
   name: {
     type: String,
     required: true,

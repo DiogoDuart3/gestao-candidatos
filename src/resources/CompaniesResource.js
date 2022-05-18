@@ -1,3 +1,5 @@
+const uploadFeature = require("@adminjs/upload");
+
 const Company = require("../models/Company");
 
 module.exports = {
@@ -10,6 +12,9 @@ module.exports = {
       _id: {
         isVisible: false,
       },
+      logoLocation: {
+        mimeType: {},
+      },
       description: {
         type: "richtext",
         isVisible: { list: false, show: true, edit: true },
@@ -19,4 +24,13 @@ module.exports = {
       },
     },
   },
+  features: [
+    uploadFeature({
+      provider: { local: { bucket: "public" } },
+      properties: {
+        key: "logoLocation",
+        mimeType: "mimeType",
+      },
+    }),
+  ],
 };
